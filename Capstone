@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+#Autorun a file that has not being in use for past 60 days ago
+
+size=$1
+days=$2
+
+echo -e "\nFinding html files from Downloads_1 with $size used $days ago"
+find Download_1 -type f -iname "*.html" -size $1 -mtime $2
+
+echo -e "\nDelete result"
+find Download_1 -type f - iname "*.html" -size $1 -mtime $2 -delete
+
+echo "Done"
+
+
